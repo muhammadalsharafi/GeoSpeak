@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoSpeak Translation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="../static/Geo Speak.jpg">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="{{ url_for('static', filename='../static/Geo Speak.jpg') }}" alt="Site Logo" class="logo">
+            <h1>GeoSpeak</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <form method="POST" action="/">
+                <div class="translation-section">
+                    <label for="text-input">Enter English Text:</label>
+                    
+                    <textarea 
+                    id="text-input"
+                    name="text" 
+                    placeholder="Type your text here..." 
+                    cols="30"
+                    rows="10"
+                    required
+                    maxlength="2000"
+                    minlength="2"
+                    >{{ input_text }}</textarea>
+
+                    <label for="language-select">Select Language:</label>
+                    <select id="language-select" name="language">
+                        <option value="af" {% if selectedLang == 'af' %}selected{% endif %}>Afrikaans</option>
+                        <option value="sq" {% if selectedLang == 'sq' %}selected{% endif %}>Albanian</option>
+                        <option value="am" {% if selectedLang == 'am' %}selected{% endif %}>Amharic</option>
+                        <option value="ar" {% if selectedLang == 'ar' %}selected{% endif %}>Arabic</option>
+                        <option value="hy" {% if selectedLang == 'hy' %}selected{% endif %}>Armenian</option>
+                        <option value="az" {% if selectedLang == 'az' %}selected{% endif %}>Azerbaijani</option>
+                        <option value="eu" {% if selectedLang == 'eu' %}selected{% endif %}>Basque</option>
+                        <option value="be" {% if selectedLang == 'be' %}selected{% endif %}>Belarusian</option>
+                        <option value="bn" {% if selectedLang == 'bn' %}selected{% endif %}>Bengali</option>
+                        <option value="bs" {% if selectedLang == 'bs' %}selected{% endif %}>Bosnian</option>
+                        <option value="bg" {% if selectedLang == 'bg' %}selected{% endif %}>Bulgarian</option>
+                        <option value="my" {% if selectedLang == 'my' %}selected{% endif %}>Burmese</option>
+                        <option value="ca" {% if selectedLang == 'ca' %}selected{% endif %}>Catalan</option>
+                        <option value="zh" {% if selectedLang == 'zh' %}selected{% endif %}>Chinese</option>
+                        <option value="hr" {% if selectedLang == 'hr' %}selected{% endif %}>Croatian</option>
+                        <option value="cs" {% if selectedLang == 'cs' %}selected{% endif %}>Czech</option>
+                        <option value="da" {% if selectedLang == 'da' %}selected{% endif %}>Danish</option>
+                        <option value="nl" {% if selectedLang == 'nl' %}selected{% endif %}>Dutch</option>
+                        <option value="en" {% if selectedLang == 'en' %}selected{% endif %}>English</option>
+                        <option value="et" {% if selectedLang == 'et' %}selected{% endif %}>Estonian</option>
+                        <option value="fi" {% if selectedLang == 'fi' %}selected{% endif %}>Finnish</option>
+                        <option value="fr" {% if selectedLang == 'fr' %}selected{% endif %}>French</option>
+                        <option value="ka" {% if selectedLang == 'ka' %}selected{% endif %}>Georgian</option>
+                        <option value="de" {% if selectedLang == 'de' %}selected{% endif %}>German</option>
+                        <option value="el" {% if selectedLang == 'el' %}selected{% endif %}>Greek</option>
+                        <option value="gu" {% if selectedLang == 'gu' %}selected{% endif %}>Gujarati</option>
+                        <option value="he" {% if selectedLang == 'he' %}selected{% endif %}>Hebrew</option>
+                        <option value="hi" {% if selectedLang == 'hi' %}selected{% endif %}>Hindi</option>
+                        <option value="hu" {% if selectedLang == 'hu' %}selected{% endif %}>Hungarian</option>
+                        <option value="is" {% if selectedLang == 'is' %}selected{% endif %}>Icelandic</option>
+                        <option value="id" {% if selectedLang == 'id' %}selected{% endif %}>Indonesian</option>
+                        <option value="it" {% if selectedLang == 'it' %}selected{% endif %}>Italian</option>
+                        <option value="ja" {% if selectedLang == 'ja' %}selected{% endif %}>Japanese</option>
+                        <option value="kn" {% if selectedLang == 'kn' %}selected{% endif %}>Kannada</option>
+                        <option value="kk" {% if selectedLang == 'kk' %}selected{% endif %}>Kazakh</option>
+                        <option value="km" {% if selectedLang == 'km' %}selected{% endif %}>Khmer</option>
+                        <option value="ko" {% if selectedLang == 'ko' %}selected{% endif %}>Korean</option>
+                        <option value="lo" {% if selectedLang == 'lo' %}selected{% endif %}>Lao</option>
+                        <option value="lv" {% if selectedLang == 'lv' %}selected{% endif %}>Latvian</option>
+                        <option value="lt" {% if selectedLang == 'lt' %}selected{% endif %}>Lithuanian</option>
+                        <option value="mk" {% if selectedLang == 'mk' %}selected{% endif %}>Macedonian</option>
+                        <option value="ml" {% if selectedLang == 'ml' %}selected{% endif %}>Malayalam</option>
+                        <option value="mr" {% if selectedLang == 'mr' %}selected{% endif %}>Marathi</option>
+                        <option value="mn" {% if selectedLang == 'mn' %}selected{% endif %}>Mongolian</option>
+                        <option value="ne" {% if selectedLang == 'ne' %}selected{% endif %}>Nepali</option>
+                        <option value="no" {% if selectedLang == 'no' %}selected{% endif %}>Norwegian</option>
+                        <option value="fa" {% if selectedLang == 'fa' %}selected{% endif %}>Persian</option>
+                        <option value="pl" {% if selectedLang == 'pl' %}selected{% endif %}>Polish</option>
+                        <option value="pt" {% if selectedLang == 'pt' %}selected{% endif %}>Portuguese</option>
+                        <option value="pa" {% if selectedLang == 'pa' %}selected{% endif %}>Punjabi</option>
+                        <option value="ro" {% if selectedLang == 'ro' %}selected{% endif %}>Romanian</option>
+                        <option value="ru" {% if selectedLang == 'ru' %}selected{% endif %}>Russian</option>
+                        <option value="sr" {% if selectedLang == 'sr' %}selected{% endif %}>Serbian</option>
+                        <option value="si" {% if selectedLang == 'si' %}selected{% endif %}>Sinhala</option>
+                        <option value="sk" {% if selectedLang == 'sk' %}selected{% endif %}>Slovak</option>
+                        <option value="sl" {% if selectedLang == 'sl' %}selected{% endif %}>Slovenian</option>
+                        <option value="es" {% if selectedLang == 'es' %}selected{% endif %}>Spanish</option>
+                        <option value="sw" {% if selectedLang == 'sw' %}selected{% endif %}>Swahili</option>
+                        <option value="sv" {% if selectedLang == 'sv' %}selected{% endif %}>Swedish</option>
+                        <option value="ta" {% if selectedLang == 'ta' %}selected{% endif %}>Tamil</option>
+                        <option value="te" {% if selectedLang == 'te' %}selected{% endif %}>Telugu</option>
+                        <option value="th" {% if selectedLang == 'th' %}selected{% endif %}>Thai</option>
+                        <option value="tr" {% if selectedLang == 'tr' %}selected{% endif %}>Turkish</option>
+                        <option value="uk" {% if selectedLang == 'uk' %}selected{% endif %}>Ukrainian</option>
+                        <option value="ur" {% if selectedLang == 'ur' %}selected{% endif %}>Urdu</option>
+                        <option value="vi" {% if selectedLang == 'vi' %}selected{% endif %}>Vietnamese</option>
+                        <option value="cy" {% if selectedLang == 'cy' %}selected{% endif %}>Welsh</option>
+                        <option value="xh" {% if selectedLang == 'xh' %}selected{% endif %}>Xhosa</option>
+                        <option value="zu" {% if selectedLang == 'zu' %}selected{% endif %}>Zulu</option>
+                    </select>
+                    
+                    
+
+                    <button type="submit" name="action" value="translate">Translate</button>
+                    <button type="submit" name="action" value="show_details">Show Details</button>
+                    <button type="submit" name="action" value="reset">Reset</button>
+                </div>
+
+                {% if translated_text %}
+                <div id="translation-result">
+                    <h3>Translation Result:</h3>
+                    <!-- <p>{{ translated_text }}</p> -->
+                    <textarea 
+                    cols="30"
+                    rows="5"
+                    readonly
+                    >{{ translated_text }}</textarea>
+                </div>
+                {% endif %}
+
+                {% if details %}
+                <div id="details-section">
+                    <h3>The Context:</h3>
+                    <!-- <p>{{ details }}</p> -->
+                    <textarea 
+                    cols="30"
+                    rows="5"
+                    readonly
+                    >{{ details }}</textarea>
+                </div>
+                {% endif %}
+
+                {% if error %}
+                <div id="error-section">
+                    <h3>error:</h3>
+                    <!-- <p>{{ error }}</p> -->
+                    <textarea 
+                    cols="30"
+                    rows="2"
+                    readonly
+                    >{{ error }}</textarea>
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </main>
+</body>
+</html>

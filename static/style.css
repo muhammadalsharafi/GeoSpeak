@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: "Playpen Sans", cursive;
+    line-height: 1.6;
+    background-image: linear-gradient(to right, #30cfd0 , #04044c );
+}
+
+header {
+    color: #000000;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #c6deeb;
+}
+
+.logo {
+    height: 75px;
+    margin-right: 10px;
+    border-radius: 30%;
+}
+header .container h1{
+    font-size: 50px;
+}
+main {
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    resize: none;
+    font-size: 25px;
+}
+
+select, button {
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-family: "Playpen Sans", cursive;
+}
+.container select{
+    width:100px;
+    border-radius: 20px;
+
+}
+option:hover{
+    background-color: #98cfe7;
+}
+button {
+    background-color: #3d97be;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .4s ease;
+}
+
+button:hover {
+    box-shadow: 0 0 1rem rgb(121, 196, 221);
+}
+
+@media (max-width: 600px) {
+    /* header .container {
+        flex-direction: column;
+    } */
+
+    button, select {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(77, 170, 196); 
+    border-radius: 20px;
+}
